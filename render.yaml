@@ -2,11 +2,14 @@ services:
   - type: web
     name: mtaamove-api
     runtime: python
+    plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /ready
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.3"
       - key: ENVIRONMENT
         value: production
       - key: DATABASE_URL
@@ -14,7 +17,7 @@ services:
           name: mtaamove-db
           property: connectionString
       - key: CORS_ORIGINS
-        value: https://REPLACE-WITH-YOUR-FRONTEND.onrender.com
+        value: https://mtaamove-web.onrender.com
   - type: web
     name: mtaamove-web
     runtime: static
@@ -23,7 +26,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://REPLACE-WITH-YOUR-API.onrender.com
+        value: https://mtaamove-api.onrender.com
     routes:
       - type: rewrite
         source: /*

@@ -29,3 +29,11 @@ build/
 .pytest_cache/
 *.sqlite3
 *.db
+
+# added before first push
+.env.*
+!.env.example
+*.sqlite3
+*.pem
+*.key
+credentials.json
