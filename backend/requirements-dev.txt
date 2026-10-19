@@ -1,1 +1,3 @@
--r requirements.txt\npytest>=8.0,<9.0\nhttpx>=0.27,<1.0\n
+﻿-r requirements.txt
+pytest>=8.0,<9.0
+httpx>=0.27,<1.0
