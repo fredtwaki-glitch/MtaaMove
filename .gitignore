@@ -38,3 +38,8 @@ build/
 *.key
 credentials.json
 *.tsbuildinfo
+
+# Local database backups
+*.db.backup
+*.sqlite
+*.sqlite3
